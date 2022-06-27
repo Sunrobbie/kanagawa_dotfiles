@@ -28,35 +28,38 @@ awesome.connect_signal("sysstat::cpu", function(cpu_val)
     cpu[3].text = cpu_val .. '%'
 end)
 
---awesome.connect_signal("sysstat::pow", function(pow_val, status)
---    mb.set_val(pow, parameters, pow_val)
---    pow[3].text = pow_val .. '%'
---end)
+--Alternate widgets using bash commands to get system data
+--as sysstat was not working on my system
+awful.widget.watch('bash -c "sensors | grep Tctl"', 15, function(widget, stdout)
+	out = string.match(stdout, "%d+%.%d")
+	mb.set_val(tmp, parameters, tonumber(out))
+	tmp[3].text = out .. '°C'
+end)
 
-
-awesome.connect_signal("sysstat::temp", function(temp_val)
-    mb.set_val(tmp, parameters, temp_val)
-    tmp[3].text = temp_val .. '°C'
+awful.widget.watch('bash -c "acpi"', 15, function(widget, stdout)
+	out = string.match(stdout, '%d+%.-%d+')
+	mb.set_val(pow, parameters, tonumber(out))
+	pow[3].text = out .. '%'
 end)
 
 local monitor_panel = wibox.widget(
 {
   {
     {
+        cpu,
+        widget = wibox.container.margin,
+        margins = dpi(5)
+    },
+    {
         ram,
         widget = wibox.container.margin,
         margins = dpi(5)
     },
     {
-        cpu,
+        pow,
         widget = wibox.container.margin,
         margins = dpi(5)
     },
---    {
---        pow,
---        widget = wibox.container.margin,
---        margins = dpi(5)
---    },
     {
         tmp,
         widget = wibox.container.margin,

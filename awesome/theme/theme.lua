@@ -7,7 +7,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
-local themes_path = "/home/alex/.config/awesome/theme/"
+local themes_path = "/home/robbie/.config/awesome/theme/"
 
 local theme = {}
 theme.font_famaly = "Fira Code "
