@@ -42,7 +42,7 @@ end
 
 battery_widget_factory = {}
 battery_widget_factory.create = function(parameters)
-  local value = 0
+  value = 0
   local battery_icon = wibox.widget{
       text    = "",
       align   = parameters.alignment or beautiful.battery_aligment,
@@ -57,9 +57,10 @@ battery_widget_factory.create = function(parameters)
     battery_icon_t.text = tostring(value) .. "%"
   end)
 
-  awful.spawn.easy_async([[bash -c 'acpi']], function(stdout, _, _, _)
-      pow_val = string.match(stdout, '= (%d+)%%')
-      value = tonumber(pow_val)
+  --Replaced with widget.watch because of sysstat not working
+  awful.widget.watch('bash -c "acpi"', 15, function(widget, stdout)
+      pow_val = tonumber(string.match(stdout, '%d+%.-%d+'))
+      value = pow_val
       if string.match(stdout, 'Charging') == "Charging" then
         battery_icon.text = ""
       elseif pow_val > 75 then

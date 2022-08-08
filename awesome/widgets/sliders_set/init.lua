@@ -16,7 +16,7 @@ function(val)
 end
 )
 
-local music_icon = icons.wbi("", 32)
+local music_icon = icons.wbi("墳", 32)
 
 local brightness_sl = slider_factory.create_with_events(10, 100, commands.brightness,
 function(stdout)

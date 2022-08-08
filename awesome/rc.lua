@@ -210,3 +210,5 @@ require("widgets.dashboard")
 
 -- Autostart
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("volumeicon")
+awesome.set_preferred_icon_size(32)
