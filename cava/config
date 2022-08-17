@@ -12,7 +12,7 @@
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-; autosens = 1
+autosens = 1
 ; overshoot = 20
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
@@ -133,7 +133,7 @@
 # enable alacritty synchronized updates. 1 = on, 0 = off
 # removes flickering in alacritty terminal emeulator.
 # defaults to off since the behaviour in other terminal emulators is unknown
- alacritty_sync = 1
+; alacritty_sync = 1
 
 [color]
 
@@ -153,16 +153,16 @@
 # Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
- gradient = 1
- gradient_count = 7
- gradient_color_1 = '#e82424'
- gradient_color_2 = '#98bb6c'
- gradient_color_3 = '#e6c384'
- gradient_color_4 = '#7fb4ca'
- gradient_color_5 = '#938aa9'
- gradient_color_6 = '#7aa89f'
- gradient_color_7 = '#cc5933'
- gradient_color_8 = '#cc3333'
+# gradient = 1
+# gradient_count = 7
+# gradient_color_1 = '#e82424'
+# gradient_color_2 = '#98bb6c'
+# gradient_color_3 = '#e6c384'
+# gradient_color_4 = '#7fb4ca'
+# gradient_color_5 = '#938aa9'
+# gradient_color_6 = '#7aa89f'
+# gradient_color_7 = '#cc5933'
+# gradient_color_8 = '#cc3333'
 
 
 
