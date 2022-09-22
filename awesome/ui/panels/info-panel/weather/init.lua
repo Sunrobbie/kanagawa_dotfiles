@@ -167,7 +167,7 @@ local coordinates = user_vars.widget.weather.coordinates
 
 local show_hourly_forecast = true
 local show_daily_forecast = true
-local units = "imperial"
+local units = "metric"
 
 local url = (
 	"https://api.openweathermap.org/data/2.5/onecall"
