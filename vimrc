@@ -73,7 +73,13 @@ call plug#begin('~/.config/nvim/plugged')
   " }
   " LSP {
     Plug 'github/copilot.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " main one
+    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    " 9000+ Snippets
+    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
     Plug 'pechorin/any-jump.vim'                  " jump to definition/reference
     if has("nvim")
       Plug 'folke/trouble.nvim'                   " better loc list
@@ -113,7 +119,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'joshdick/onedark.vim'
   " }
   " Quality of Life {
-    Plug 'jiangmiao/auto-pairs'                 " autoclose deimiters
+"    Plug 'jiangmiao/auto-pairs'                 " autoclose deimiters
     Plug 'alvan/vim-closetag'                   " autoclose html esq tags
     Plug 'tpope/vim-surround'                   " edit tags/delimiters in pairs
     Plug 'mhinz/vim-startify'                   " start screen
@@ -127,6 +133,7 @@ call plug#begin('~/.config/nvim/plugged')
       Plug 'psliwka/vim-smoothie'
     endif
     if has("nvim")
+      Plug 'windwp/nvim-autopairs'
       Plug 'antoinemadec/FixCursorHold.nvim'
       Plug 'sudormrfbin/cheatsheet.nvim'        " fuzzy cheatsheet
       Plug 'axieax/urlview.nvim'
@@ -237,9 +244,9 @@ let &t_SR = "\<Esc>[4 q"                        " replace mode, underscore
 let &t_EI = "\<Esc>[2 q"                        " normal mode, block
 
 " Auto Formatting
-command! -nargs=0 Format :call CocActionAsync('format')
+"command! -nargs=0 Format :call CocActionAsync('format')
 " highlight symbol on press
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 " colorscheme
 set background=light
 let g:gruvbox_number_column = 'bg1'
@@ -328,45 +335,45 @@ let mapleader = " "                               " Leader Character to Space
 let maplocalleader = "\\"
 " COC {
   " errors
-  nnoremap <silent> cd <cmd>call coc#rpc#request('fillDiagnostics',
-        \ [bufnr('%')])<CR><cmd>Trouble loclist<CR>
-  nnoremap cl :silent! TroubleClose<CR>
-  nnoremap <silent> gn :lnext<CR>
-  nnoremap <silent> gp :lprev<CR>
-  " Coc navigation - prefer anyjump for references etc.
-  nnoremap <silent> gd <Plug>(coc-definition)
-  nnoremap <silent> gt <Plug>(coc-type-definition)
-  " better documentation and scroll through
-  nnoremap <silent> D :call <SID>show_documentation()<CR>
-  inoremap <expr><c-p> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
-  if has('nvim-0.4.0') || has('patch-8.2.0750')
-    nnoremap <silent><nowait><expr> <A-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    nnoremap <silent><nowait><expr> <A-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    inoremap <silent><nowait><expr> <A-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-    inoremap <silent><nowait><expr> <A-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-    vnoremap <silent><nowait><expr> <A-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    vnoremap <silent><nowait><expr> <A-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  endif
-  " misc {
-  nnoremap <leader>ac   <Plug>(coc-codeaction-selected)w
-  nnoremap <leader>qf  <Plug>(coc-fix-current)
-  nnoremap <leader>rn <Plug>(coc-rename)
-  nnoremap <silent> <leader>cd :CocDisable<cr>
-  nnoremap <silent> <leader>ce :CocEnable<cr>
-  " jump through parameters
-  inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
-  inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+"  nnoremap <silent> cd <cmd>call coc#rpc#request('fillDiagnostics',
+"        \ [bufnr('%')])<CR><cmd>Trouble loclist<CR>
+"  nnoremap cl :silent! TroubleClose<CR>
+"  nnoremap <silent> gn :lnext<CR>
+"  nnoremap <silent> gp :lprev<CR>
+"  " Coc navigation - prefer anyjump for references etc.
+"  nnoremap <silent> gd <Plug>(coc-definition)
+"  nnoremap <silent> gt <Plug>(coc-type-definition)
+"  " better documentation and scroll through
+"  nnoremap <silent> D :call <SID>show_documentation()<CR>
+"  inoremap <expr><c-p> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
+"  if has('nvim-0.4.0') || has('patch-8.2.0750')
+"    nnoremap <silent><nowait><expr> <A-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"    nnoremap <silent><nowait><expr> <A-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"    inoremap <silent><nowait><expr> <A-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"    inoremap <silent><nowait><expr> <A-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"    vnoremap <silent><nowait><expr> <A-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"    vnoremap <silent><nowait><expr> <A-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"  endif
+"  " misc {
+"  nnoremap <leader>ac   <Plug>(coc-codeaction-selected)w
+"  nnoremap <leader>qf  <Plug>(coc-fix-current)
+"  nnoremap <leader>rn <Plug>(coc-rename)
+"  nnoremap <silent> <leader>cd :CocDisable<cr>
+"  nnoremap <silent> <leader>ce :CocEnable<cr>
+"  " jump through parameters
+"  inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+"  inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 " }
 " autocomplete {
-  inoremap <silent><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1):
-        \ CheckBackspace() ? "\<Tab>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-  inoremap <silent> <c-f> <c-x><c-f>
-  inoremap <silent> <c-'> <c-y>
+"  inoremap <silent><expr> <TAB>
+"        \ coc#pum#visible() ? coc#pum#next(1):
+"        \ CheckBackspace() ? "\<Tab>" :
+"        \ coc#refresh()
+"  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+"  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"  inoremap <silent> <c-f> <c-x><c-f>
+"  inoremap <silent> <c-'> <c-y>
 " }
 " Multiline {
   let g:VM_maps = {}
@@ -589,7 +596,44 @@ augroup END
 
 if has("nvim")
 lua << EOF
--- this is space for changing the settings of nvim only plugins
+require("nvim-autopairs").setup {}
+local remap = vim.api.nvim_set_keymap
+local npairs = require('nvim-autopairs')
+
+npairs.setup({ map_bs = false, map_cr = false })
+
+vim.g.coq_settings = { keymap = { recommended = false } }
+
+-- these mappings are coq recommended mappings unrelated to nvim-autopairs
+remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
+remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
+remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], { expr = true, noremap = true })
+remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], { expr = true, noremap = true })
+
+-- skip it, if you use another global object
+_G.MUtils= {}
+
+MUtils.CR = function()
+  if vim.fn.pumvisible() ~= 0 then
+    if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
+      return npairs.esc('<c-y>')
+    else
+      return npairs.esc('<c-e>') .. npairs.autopairs_cr()
+    end
+  else
+    return npairs.autopairs_cr()
+  end
+end
+remap('i', '<cr>', 'v:lua.MUtils.CR()', { expr = true, noremap = true })
+
+MUtils.BS = function()
+  if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
+    return npairs.esc('<c-e>') .. npairs.autopairs_bs()
+  else
+    return npairs.autopairs_bs()
+  end
+end
+remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
 EOF
 endif
 let g:session_autoload = 'no'
