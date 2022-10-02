@@ -20,7 +20,7 @@ ruled.client.connect_signal("request::rules", function()
 			-- screen = awful.screen.preferred,
 			screen = awful.screen.focused,
 			focus = awful.client.focus.filter,
-			titlebars_enabled = beautiful.titlebar_enabled,
+			titlebars_enabled = beautiful.titlebar_disabled,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 		},
 	})
