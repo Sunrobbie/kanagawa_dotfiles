@@ -1,6 +1,7 @@
 local awful = require("awful")
 local bling = require("modules.bling")
 local machi = require("modules.layout-machi")
+--local lain = require("modules.lain")
 
 --- Custom Layouts
 local mstab = bling.layout.mstab
@@ -18,6 +19,7 @@ machi.editor.nested_layouts = {
 --- Set the layouts
 tag.connect_signal("request::default_layouts", function()
 	awful.layout.append_default_layouts({
+		--lain.layout.layouts.centerwork,
 		centered,
 		awful.layout.suit.spiral.dwindle,
 		awful.layout.suit.tile,
