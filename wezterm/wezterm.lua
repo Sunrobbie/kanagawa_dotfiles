@@ -162,11 +162,11 @@ return {
 		tab_bar = {
 			active_tab = {
 				bg_color = "#0c0e0f",
-				fg_color = "#edeff0",
+				fg_color = "#9ab8df",
 				italic = true,
 			},
-			inactive_tab = { bg_color = "#090909", fg_color = "#0c0e0f" },
-			inactive_tab_hover = { bg_color = "#151515", fg_color = "#090909" },
+			inactive_tab = { bg_color = "#090909", fg_color = "#709ad2" },
+			inactive_tab_hover = { bg_color = "#151515", fg_color = "#9ab8df" },
 			new_tab = { bg_color = "#151515", fg_color = "#090909" },
 			new_tab_hover = { bg_color = "#6791c9", fg_color = "#090909" },
 		},
