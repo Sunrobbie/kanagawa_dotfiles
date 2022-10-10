@@ -117,6 +117,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'luochen1990/rainbow'                  " bracket coloring
     Plug 'blueyed/vim-diminactive'
     Plug 'joshdick/onedark.vim'
+    Plug 'catppuccin/nvim', {'as': 'catppuccin'}
   " }
   " Quality of Life {
 "    Plug 'jiangmiao/auto-pairs'                 " autoclose deimiters
@@ -235,6 +236,7 @@ call plug#end()
         \ 'display.pum.fast_close': v:false}
 " }
 
+  let g:catppuccin_flavour = "macchiato"
 
 " ---- Extra Settings ----------------------------------------------------------
 
@@ -251,7 +253,7 @@ let &t_EI = "\<Esc>[2 q"                        " normal mode, block
 set background=light
 let g:gruvbox_number_column = 'bg1'
 let g:gruvbox_contrast_dark = 'soft'
-autocmd vimenter * ++nested colorscheme onedark
+"autocmd vimenter * ++nested colorscheme onedark
 
 " Auto delete trailing whitespace, save cursor position
 augroup noWhitespace
@@ -593,6 +595,8 @@ augroup vimtex_config
 augroup END
 
 " ---- NVIM Specifics ---------------------------------------------------------
+lua require("catppuccin").setup()
+colorscheme catppuccin
 
 if has("nvim")
 lua << EOF

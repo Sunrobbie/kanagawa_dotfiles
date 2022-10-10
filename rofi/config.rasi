@@ -3,16 +3,16 @@
 configuration {
  modi: "window,drun,ssh,filebrowser";
  kb-cancel: "Escape,Alt+F1";
- terminal: "alacritty";
+ terminal: "wezterm";
  font: "Fira Code 14";
 }
 
 *{
- bg: #1f1f28bb;
- bg-alt: #2d4f67;
+ bg: #1e2030;
+ bg-alt: #181926;
 
- fg: #dcd7ba;
- fg-alt: #c8c093;
+ fg: #1e2030;
+ fg-alt: #181926;
  background-color : @bg;
 
 }
@@ -49,5 +49,5 @@ textbox {
  margin: 5 0 5 0;
  horizontal-align: 0.5;
  text-color: @fg;
- font: "JetBrainsMono Nerd Font Medium 14";
+ font: "Fira Code Nerd Font Medium 14";
 }

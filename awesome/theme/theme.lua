@@ -29,50 +29,50 @@ theme.icon_font = "Material Icons "
 
 --- Special
 theme.white = "#edeff0"
-theme.darker_black = "#060809"
-theme.black = "#0c0e0f"
-theme.lighter_black = "#121415"
-theme.one_bg = "#161819"
-theme.one_bg2 = "#1f2122"
-theme.one_bg3 = "#27292a"
-theme.grey = "#343637"
-theme.grey_fg = "#3e4041"
-theme.grey_fg2 = "#484a4b"
+theme.darker_black = "#181926"
+theme.black = "#24273a"
+theme.lighter_black = "#1e2030"
+theme.one_bg = "#363a4f"
+theme.one_bg2 = "#494d64"
+theme.one_bg3 = "#5b6078"
+theme.grey = "#6e738d"
+theme.grey_fg = "#8087a2"
+theme.grey_fg2 = "#939ab7"
 theme.light_grey = "#505253"
 
 theme.transparent = "#00000000"
 
 --- Black
-theme.color0 = "#232526"
-theme.color8 = "#2c2e2f"
+theme.color0 = "#494d64"
+theme.color8 = "#494d64"
 
 --- Red
-theme.color1 = "#df5b61"
-theme.color9 = "#e8646a"
+theme.color1 = "#ed8796"
+theme.color9 = "#ed8796"
 
 --- Green
-theme.color2 = "#78b892"
-theme.color10 = "#81c19b"
+theme.color2 = "#a6da95"
+theme.color10 = "#a6da95"
 
 --- Yellow
-theme.color3 = "#de8f78"
-theme.color11 = "#e79881"
+theme.color3 = "#eed49f"
+theme.color11 = "#eed49f"
 
 --- Blue
-theme.color4 = "#6791c9"
-theme.color12 = "#709ad2"
+theme.color4 = "#8aadf4"
+theme.color12 = "#b7bdf8"
 
 --- Magenta
-theme.color5 = "#bc83e3"
-theme.color13 = "#c58cec"
+theme.color5 = "#f5bde6"
+theme.color13 = "#f5bde6"
 
 --- Cyan
-theme.color6 = "#67afc1"
-theme.color14 = "#70b8ca"
+theme.color6 = "#8bd6ca"
+theme.color14 = "#8bd6ca"
 
 --- White
-theme.color7 = "#e4e6e7"
-theme.color15 = "#f2f4f5"
+theme.color7 = "#b8c0e0"
+theme.color15 = "#b8c0e0"
 
 --- Background Colors
 theme.bg_normal = theme.black
@@ -110,7 +110,7 @@ theme.press_event = "#ffffff" .. "15"
 theme.release_event = "#ffffff" .. "10"
 
 --- Widgets
-theme.widget_bg = "#1b1d1e"
+theme.widget_bg = "#494d64"
 
 --- Titlebars
 theme.titlebar_enabled = true
@@ -144,7 +144,7 @@ theme.titlebar_maximized_button_normal_inactive_hover = icon_dir .. "maximized_f
 theme.titlebar_maximized_button_focus_inactive_hover = icon_dir .. "maximized_focus_hover.svg"
 
 --- Wibar
-theme.wibar_bg = "#101213"
+theme.wibar_bg = "#24273a"
 theme.wibar_height = dpi(40)
 
 --- Music

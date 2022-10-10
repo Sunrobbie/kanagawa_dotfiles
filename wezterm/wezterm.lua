@@ -144,6 +144,9 @@ return {
 		},
 	},
 
+	color_scheme = "Catppuccin Macchiato",
+
+--[[
 	-- Aesthetic Night Colorscheme
 	bold_brightens_ansi_colors = true,
 	colors = {
@@ -171,7 +174,7 @@ return {
 			new_tab_hover = { bg_color = "#6791c9", fg_color = "#090909" },
 		},
 	},
-
+	--]]
 	-- Padding
 	window_padding = {
 		left = 25,
@@ -189,7 +192,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = 0.7,
+	window_background_opacity = 0.9,
 	window_close_confirmation = "NeverPrompt",
 	window_frame = { active_titlebar_bg = "#090909", font = font_with_fallback(font_name, { bold = true }) },
 }
