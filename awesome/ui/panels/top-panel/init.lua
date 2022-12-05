@@ -78,13 +78,13 @@ return function(s)
 					self:set_widget(indicator)
 
 					if c3.selected then
-						self.widget.children[1].bg = beautiful.accent
+						self.widget.children[1].bg = beautiful.random_accent_color()
 						self.indicator_animation:set(dpi(32))
 					elseif #c3:clients() == 0 then
 						self.widget.children[1].bg = beautiful.color8
 						self.indicator_animation:set(dpi(8))
 					else
-						self.widget.children[1].bg = beautiful.accent
+						self.widget.children[1].bg = beautiful.random_accent_color()
 						self.indicator_animation:set(dpi(16))
 					end
 
@@ -102,13 +102,13 @@ return function(s)
 				end,
 				update_callback = function(self, c3, _)
 					if c3.selected then
-						self.widget.children[1].bg = beautiful.accent
+						self.widget.children[1].bg = beautiful.random_accent_color()
 						self.indicator_animation:set(dpi(32))
 					elseif #c3:clients() == 0 then
 						self.widget.children[1].bg = beautiful.color8
 						self.indicator_animation:set(dpi(8))
 					else
-						self.widget.children[1].bg = beautiful.accent
+						self.widget.children[1].bg = beautiful.random_accent_color()
 						self.indicator_animation:set(dpi(16))
 					end
 				end,

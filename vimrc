@@ -594,6 +594,9 @@ augroup vimtex_config
   autocmd User VimtexEventQuit call vimtex#compiler#clean(0)
 augroup END
 
+autocmd VimEnter * COQnow
+autocmd VimEnter * CHADopen
+
 " ---- NVIM Specifics ---------------------------------------------------------
 lua require("catppuccin").setup()
 colorscheme catppuccin
